@@ -44,7 +44,10 @@ class Topdown extends Phaser.Scene {
         this.physics.world.bounds.setTo(0, 0, map.widthInPixels, map.heightInPixels);
 
         // collider        
-        this.physics.add.collider(this.p1.sprite, cloudsLayer);
+        // this.physics.add.collider(this.p1.sprite, cloudsLayer);
+        this.physics.add.collider(this.p1.sprite, cloudsLayer, this.touchingClouds);
+    
+        
         this.physics.add.collider(this.p1.sprite, buildingsLayer);        
         this.physics.add.collider(this.p1.sprite, objectsLayer);        
     }
@@ -53,5 +56,8 @@ class Topdown extends Phaser.Scene {
             this.p1.update();    
         }
 
+        touchingClouds () {
+            console.log("Touching Clouds");
+        }
     
 }
