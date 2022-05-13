@@ -4,13 +4,16 @@ let config = {
     height:576,
     physics: {
         default: 'arcade',
+        arcade: {
+            debug: true,
+        }
     },
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
     },
     pixelArt: true,
-    scene: [Topdown, Special],
+    scene: [Play, Topdown, Special],
     /*
     callbacks: {
         postBoot: function(game) {
