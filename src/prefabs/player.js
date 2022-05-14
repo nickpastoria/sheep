@@ -3,12 +3,16 @@ class  Player extends Phaser.Scene {
         super('player');
         scene.add.existing(this);
         this.scene = scene;
-        this.sprite = scene.physics.add.sprite(700, 400, "shark", 0);
+        // this.sprite = scene.physics.add.sprite(700, 400, "shark", 0);
+
+        this.tags = scene.anims.createFromAseprite('sheep');
+        this.sprite = scene.physics.add.sprite(game.config.width/2, game.config.height/2).play({key: "idle_0", repeat: -1}).setScale(2);
+
         this.sprite.body.setCollideWorldBounds(true);
     }
 
-    create () {        
-        
+    preload () {
+        this.load.aseprite('sheep', './assets/sheep.png', './assets/sheep.json');
     }
 
     update () {                

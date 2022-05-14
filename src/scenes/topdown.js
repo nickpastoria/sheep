@@ -5,12 +5,16 @@ class Topdown extends Phaser.Scene {
     }
 
     preload () {
-        this.load.image("tiles", "assets/cloud_tileset.png");
-        this.load.tilemapTiledJSON("city_map", "assets/city_map.json");
-        this.load.image("shark", "assets/shark.png");
+        // this.load.image("tiles", "assets/cloud_tileset.png");
+        this.load.image("tileset", "assets/tiles.png");
+        // this.load.tilemapTiledJSON("city_map", "assets/city_map.json");
+        this.load.tilemapTiledJSON("city_map", "assets/myCity.json");
+        // this.load.image("shark", "assets/shark.png");        
     }
     
     create() {       
+
+        this.cameras.main.setBackgroundColor('FFFFFF');
 
         // keys
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -19,15 +23,15 @@ class Topdown extends Phaser.Scene {
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         
         const map = this.add.tilemap("city_map");
-        const tileSet = map.addTilesetImage("cloud_tiles", "tiles");
-        const groundLayer = map.createLayer("Grounds", tileSet, 0, 0);
-        const cloudsLayer = map.createLayer("Clouds", tileSet, 0, 0);
+        const tileSet = map.addTilesetImage("tiles", "tileset");
+        const groundLayer = map.createLayer("Ground", tileSet, 0, 0);
+        // const cloudsLayer = map.createLayer("Clouds", tileSet, 0, 0);
         const buildingsLayer = map.createLayer("Buildings", tileSet, 0, 0);        
         const objectsLayer = map.createLayer("Objects", tileSet, 0, 0);                
         
-        cloudsLayer.setCollisionByProperty({ 
-            collides: true 
-        });
+        // cloudsLayer.setCollisionByProperty({ 
+        //     collides: true 
+        // });
         buildingsLayer.setCollisionByProperty({ 
             collides: true 
         });
@@ -45,18 +49,18 @@ class Topdown extends Phaser.Scene {
 
         // collider        
         // this.physics.add.collider(this.p1.sprite, cloudsLayer);
-        this.physics.add.collider(this.p1.sprite, cloudsLayer, this.touchingClouds);
+        this.physics.add.collider(this.p1.sprite, buildingsLayer, this.touchinBuilding);
     
         
         this.physics.add.collider(this.p1.sprite, buildingsLayer);        
-        this.physics.add.collider(this.p1.sprite, objectsLayer);        
+        // this.physics.add.collider(this.p1.sprite, objectsLayer);        
     }
 
         update() {
             this.p1.update();    
         }
 
-        touchingClouds () {
+        touchinBuilding () {
             console.log("Touching Clouds");
         }
     
