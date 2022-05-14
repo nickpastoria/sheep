@@ -1,18 +1,14 @@
-class  Player extends Phaser.Scene {
-    constructor(scene) {
-        super('player');
-        scene.add.existing(this);
+class  Player {
+    constructor(scene, tags) {
         this.scene = scene;
         // this.sprite = scene.physics.add.sprite(700, 400, "shark", 0);
-
-        this.tags = scene.anims.createFromAseprite('sheep');
+        this.tags = tags;
         this.sprite = scene.physics.add.sprite(game.config.width/2, game.config.height/2);
         this.sprite.play("idle_0");
         this.sprite.body.setCollideWorldBounds(true);
     }
 
     preload () {
-        this.load.aseprite('sheep', './assets/sheep.png', './assets/sheep.json');
     }
 
     update () {                

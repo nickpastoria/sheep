@@ -13,7 +13,7 @@ let config = {
         autoCenter: Phaser.Scale.CENTER_BOTH,
     },
     pixelArt: true,
-    scene: [Play, Topdown, Special],
+    scene: [Load, Topdown, Special],
     /*
     callbacks: {
         postBoot: function(game) {

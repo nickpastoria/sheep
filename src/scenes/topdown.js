@@ -6,10 +6,13 @@ class Topdown extends Phaser.Scene {
 
     preload () {
         // this.load.image("tiles", "assets/cloud_tileset.png");
-        this.load.image("tileset", "assets/tiles.png");
+        this.load.image("tileset", "./assets/tiles.png");
         // this.load.tilemapTiledJSON("city_map", "assets/city_map.json");
-        this.load.tilemapTiledJSON("city_map", "assets/myCity.json");
+        this.load.tilemapTiledJSON("city_map", "./assets/myCity.json");
         // this.load.image("shark", "assets/shark.png");        
+        this.load.aseprite('sheep', './assets/sheep.png', './assets/sheep.json');
+        this.sheep_tags = this.anims.createFromAseprite('sheep');
+
     }
     
     create() {       
@@ -42,7 +45,7 @@ class Topdown extends Phaser.Scene {
         // this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         // this.cameras.main.startFollow(this.p1, true, 0.25, 0.25);
 
-        this.p1 = new Player(this);
+        this.p1 = new Player(this, this.sheep_tags);
 
         // world bounds
         this.physics.world.bounds.setTo(0, 0, map.widthInPixels, map.heightInPixels);
