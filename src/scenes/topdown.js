@@ -11,12 +11,10 @@ class Topdown extends Phaser.Scene {
         this.load.tilemapTiledJSON("city_map", "./assets/myCity.json");
         // this.load.image("shark", "assets/shark.png");        
         this.load.aseprite('sheep', './assets/sheep.png', './assets/sheep.json');
-        this.sheep_tags = this.anims.createFromAseprite('sheep');
-
     }
     
     create() {       
-
+        this.sheep_tags = this.anims.createFromAseprite('sheep');
         this.cameras.main.setBackgroundColor('FFFFFF');
 
         // keys
