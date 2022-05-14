@@ -6,8 +6,8 @@ class  Player extends Phaser.Scene {
         // this.sprite = scene.physics.add.sprite(700, 400, "shark", 0);
 
         this.tags = scene.anims.createFromAseprite('sheep');
-        this.sprite = scene.physics.add.sprite(game.config.width/2, game.config.height/2).play({key: "idle_0", repeat: -1}).setScale(2);
-
+        this.sprite = scene.physics.add.sprite(game.config.width/2, game.config.height/2);
+        this.sprite.play("idle_0");
         this.sprite.body.setCollideWorldBounds(true);
     }
 
