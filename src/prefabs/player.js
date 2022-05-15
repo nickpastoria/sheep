@@ -1,4 +1,4 @@
-class  Player {
+class Player {
     constructor(scene, tags) {
         this.scene = scene;
         // this.sprite = scene.physics.add.sprite(700, 400, "shark", 0);
@@ -6,6 +6,8 @@ class  Player {
         this.sprite = scene.physics.add.sprite(game.config.width/2, game.config.height/2);
         this.sprite.play(this.tags[0].key);
         this.sprite.body.setCollideWorldBounds(true);
+        this.sprite.body.setSize(23, 26, false);
+        this.sprite.body.setOffset(6,3);
         this.moveSpeed = 100;
         this.facing = 0;
     }
@@ -27,7 +29,5 @@ class  Player {
         let moveY = (-keyW.isDown + keyS.isDown);
         this.sprite.body.setVelocityX(moveX * this.moveSpeed);
         this.sprite.body.setVelocityY(moveY * this.moveSpeed);
-
-
     }
 }
