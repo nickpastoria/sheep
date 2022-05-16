@@ -1,16 +1,20 @@
+
 let config = {
     type: Phaser.CANVAS,
-    width:1024,
-    height:576,
+    width:384,
+    height:256,
     physics: {
         default: 'arcade',
+        arcade: {
+            debug: true,
+        }
     },
     scale: {
-        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
+        zoom: Phaser.Scale.ZOOM_2X,
     },
     pixelArt: true,
-    scene: [Topdown, Special],
+    scene: [Load, Topdown, Special],
     /*
     callbacks: {
         postBoot: function(game) {
