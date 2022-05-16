@@ -16,6 +16,7 @@ class Topdown extends Phaser.Scene {
     create() {       
         this.sheep_tags = this.anims.createFromAseprite('sheep');
         this.cameras.main.setBackgroundColor('FFFFFF');
+        this.cameras.main.fadeIn(2000, 0, 0, 0);
 
         // keys
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);

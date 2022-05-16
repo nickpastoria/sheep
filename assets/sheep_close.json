@@ -1,0 +1,43 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 172, "h": 125 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 72, "y": 117, "w": 170, "h": 123 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 174, "y": 1, "w": 172, "h": 125 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 72, "y": 117, "w": 170, "h": 123 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 1, "y": 127, "w": 172, "h": 124 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 72, "y": 118, "w": 170, "h": 122 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25-x64",
+  "image": "sheep_close.png",
+  "format": "RGBA8888",
+  "size": { "w": 346, "h": 251 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "idle", "from": 0, "to": 2, "direction": "forward" }
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
