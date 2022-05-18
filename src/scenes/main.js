@@ -14,7 +14,7 @@ let config = {
         zoom: Phaser.Scale.ZOOM_2X,
     },
     pixelArt: true,
-    scene: [Load, Topdown, Special, Ending],
+    scene: [Load, Topdown, Special, Boxing, Ending],
     /*
     callbacks: {
         postBoot: function(game) {
