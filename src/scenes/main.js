@@ -1,4 +1,7 @@
-
+// Boxing Gloves - Left Handed by Gohar Munir, licensed under CC 4.0
+// https://sketchfab.com/3d-models/boxing-gloves-left-handed-076293541203455da59a38eea5b6a44b
+// https://creativecommons.org/licenses/by/4.0/
+// Converted to 2D sprite in image editing software.
 let config = {
     type: Phaser.CANVAS,
     width:384,
@@ -14,7 +17,7 @@ let config = {
         zoom: Phaser.Scale.ZOOM_2X,
     },
     pixelArt: true,
-    scene: [Load, Topdown, Special, Ending],
+    scene: [Load, Topdown, Special, Boxing, Ending],
     /*
     callbacks: {
         postBoot: function(game) {

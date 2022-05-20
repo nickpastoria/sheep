@@ -1,0 +1,102 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 158, "y": 1, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 315, "y": 1, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "3": {
+    "frame": { "x": 1, "y": 144, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 75
+   },
+   "4": {
+    "frame": { "x": 158, "y": 144, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 75
+   },
+   "5": {
+    "frame": { "x": 158, "y": 144, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 75
+   },
+   "6": {
+    "frame": { "x": 1, "y": 144, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 75
+   },
+   "7": {
+    "frame": { "x": 315, "y": 144, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 75
+   },
+   "8": {
+    "frame": { "x": 1, "y": 287, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 75
+   },
+   "9": {
+    "frame": { "x": 158, "y": 287, "w": 156, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 83, "y": 19, "w": 154, "h": 140 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 75
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25-x64",
+  "image": "fight.png",
+  "format": "RGBA8888",
+  "size": { "w": 471, "h": 429 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "boxer_idle", "from": 0, "to": 2, "direction": "forward" },
+   { "name": "boxer_hit", "from": 3, "to": 9, "direction": "forward" }
+  ],
+  "layers": [
+   { "name": "Layer 6", "opacity": 255, "blendMode": "normal" },
+   { "name": "Layer 5", "opacity": 255, "blendMode": "normal" },
+   { "name": "Layer 3", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
