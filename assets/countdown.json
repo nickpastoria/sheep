@@ -1,0 +1,99 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 98, "y": 1, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 195, "y": 1, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "3": {
+    "frame": { "x": 292, "y": 1, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "4": {
+    "frame": { "x": 1, "y": 130, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "5": {
+    "frame": { "x": 98, "y": 130, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "6": {
+    "frame": { "x": 195, "y": 130, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "7": {
+    "frame": { "x": 292, "y": 130, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "8": {
+    "frame": { "x": 1, "y": 259, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   },
+   "9": {
+    "frame": { "x": 98, "y": 259, "w": 96, "h": 128 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 126 },
+    "sourceSize": { "w": 94, "h": 126 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25-x64",
+  "image": "countdown.png",
+  "format": "RGBA8888",
+  "size": { "w": 388, "h": 387 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "countdown", "from": 2, "to": 11, "direction": "forward" }
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
