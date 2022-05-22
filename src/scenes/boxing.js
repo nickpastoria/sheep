@@ -44,6 +44,23 @@ class Boxing extends Phaser.Scene {
         this.transitioning = true;
         this.cameras.main.on(Phaser.Cameras.Scene2D.Events.FADE_IN_COMPLETE, (cam, effect) => {
             this.transitioning = false;
+
+            // ending selection logic
+            this.clock = this.time.delayedCall(6500, () => {
+                let target = 'special'
+                if (this.hits >= 200) {
+                    target = 'ending'; // make this go to a special ending
+                }
+                else if (this.hits >= 100) {
+                    target = 'ending'; // normal ending
+                }
+                else {
+                    target = 'gameover';
+                }
+                this.transitioning = true;
+                this.scene.transition({target: target, duration: 2000,});
+                this.cameras.main.fade(2000, 0, 0, 0);
+            }, null, this);
         })
 
         // boxer damage animation

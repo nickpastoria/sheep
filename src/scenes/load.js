@@ -16,7 +16,7 @@ class Load extends Phaser.Scene {
     }
 
     update () {
-        this.scene.start('boxing');
+        this.scene.start('special');
     }
 
 }

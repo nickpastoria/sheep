@@ -24,7 +24,7 @@ class Special extends Phaser.Scene {
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.choices = ['ending', 'topdown'];
+        this.choices = ['boxing', 'topdown'];
         this.selection = 0;
         this.transitioning = true;
 
