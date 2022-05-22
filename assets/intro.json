@@ -1,0 +1,52 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 326, "h": 246 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 30, "y": 6, "w": 324, "h": 244 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 350
+   },
+   "1": {
+    "frame": { "x": 328, "y": 1, "w": 326, "h": 246 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 30, "y": 6, "w": 324, "h": 244 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 250
+   },
+   "2": {
+    "frame": { "x": 1, "y": 248, "w": 326, "h": 246 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 30, "y": 6, "w": 324, "h": 244 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 350
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25-x64",
+  "image": "closeup.png",
+  "format": "I8",
+  "size": { "w": 654, "h": 494 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "computer_cutscene", "from": 0, "to": 2, "direction": "pingpong" }
+  ],
+  "layers": [
+   { "name": "Background", "opacity": 255, "blendMode": "normal" },
+   { "name": "poster2", "opacity": 255, "blendMode": "normal" },
+   { "name": "poster1", "opacity": 255, "blendMode": "normal" },
+   { "name": "kb/pad", "opacity": 255, "blendMode": "normal" },
+   { "name": "monitors", "opacity": 255, "blendMode": "normal" },
+   { "name": "displays", "opacity": 255, "blendMode": "normal" },
+   { "name": "sheep", "opacity": 255, "blendMode": "normal" },
+   { "name": "mouse", "opacity": 255, "blendMode": "normal" },
+   { "name": "hand", "opacity": 255, "blendMode": "normal" },
+   { "name": "mic", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
