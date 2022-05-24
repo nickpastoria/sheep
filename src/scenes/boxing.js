@@ -48,10 +48,10 @@ class Boxing extends Phaser.Scene {
             // ending selection logic
             this.clock = this.time.delayedCall(6500, () => {
                 let target = 'special'
-                if (this.hits >= 200) {
+                if (this.hits >= 50) {
                     target = 'ending'; // make this go to a special ending
                 }
-                else if (this.hits >= 100) {
+                else if (this.hits >= 25) {
                     target = 'ending'; // normal ending
                 }
                 else {
