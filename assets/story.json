@@ -1,0 +1,637 @@
+{
+    "passages": [
+      {
+        "text": "Hi!\nThis is the story about how my child went to college.\nIt began when... \nCome on sport.\nYou gotta stand up from your computer to start your college journey there sport!\n*You Stand Up*\nWell there ya go!\nNow the way they got to college was by walkin out of that darn room and showin the world what their made of.\nGo on sport!\n[[Leave->Street]]\n(link:\"Close Door\")[=\nBut at first they didn't want to leave their little room.\nWe'll im sorry sport but that's not an option\nyou can be an internet celebrity and sell your bathwater\n*after* you've gone to college",
+        "links": [
+          {
+            "name": "Leave",
+            "link": "Street",
+            "pid": "2"
+          }
+        ],
+        "name": "Start",
+        "pid": "1",
+        "position": {
+          "x": "734.3333333333334",
+          "y": "230.33333333333334"
+        }
+      },
+      {
+        "text": "Ahh. There we go!\nSmell the fresh air, do you feel that breeze?\nThis is the part of the story where my child *chose* to go to college!\n[[Go To College ->College]]\n[[Don't Go To College ->Not College]]",
+        "links": [
+          {
+            "name": "Go To College ",
+            "link": "College",
+            "pid": "3"
+          },
+          {
+            "name": "Don't Go To College ",
+            "link": "Not College",
+            "pid": "4"
+          }
+        ],
+        "name": "Street",
+        "pid": "2",
+        "position": {
+          "x": "871",
+          "y": "225"
+        }
+      },
+      {
+        "text": "Ahaha! Fantastic choice!\nThere were many exciting challenges that my child faced at college!\nThe first of which was what major to pick?\n\nNow of course, my child chose Business Entreprenuership\nYou've always been extremely industrius sport, and that's what I've always loved about you.\n\n*You see two doors ahead of you*\n*One door has pictures of money on it*\n*The other has a paint brush*\n\n[[Choose Money Door->College Money]]\n[[Choose Paint Brush Door->College Art]]",
+        "links": [
+          {
+            "name": "Choose Money Door",
+            "link": "College Money",
+            "pid": "20"
+          },
+          {
+            "name": "Choose Paint Brush Door",
+            "link": "College Art",
+            "pid": "21"
+          }
+        ],
+        "name": "College",
+        "pid": "3",
+        "position": {
+          "x": "1011",
+          "y": "210"
+        }
+      },
+      {
+        "text": "Woah! Hold on there!\nYou're going the wrong way!\nLet me help you out!\n*Teleports you back to the street*\n[[Go Back To The Street->Street2]]",
+        "links": [
+          {
+            "name": "Go Back To The Street",
+            "link": "Street2",
+            "pid": "5"
+          }
+        ],
+        "name": "Not College",
+        "pid": "4",
+        "position": {
+          "x": "787",
+          "y": "445"
+        }
+      },
+      {
+        "text": "Whew, you almost went the wrong way there sport!\nNow to help you out with my story I've made a sign for you!\n*A sign is now here*\n\n''Go\n2\nCollege''\n\nOk, now make your decision.\n[[Go To College ->College]]\n[[Don't Go To College ->Not College2]]\n[[Enter Grungy Building -> Grungy Building]]",
+        "links": [
+          {
+            "name": "Go To College ",
+            "link": "College",
+            "pid": "3"
+          },
+          {
+            "name": "Don't Go To College ",
+            "link": "Not College2",
+            "pid": "6"
+          },
+          {
+            "name": "Enter Grungy Building ",
+            "link": " Grungy Building",
+            "pid": "15"
+          }
+        ],
+        "name": "Street2",
+        "pid": "5",
+        "position": {
+          "x": "941",
+          "y": "451"
+        }
+      },
+      {
+        "text": "Ok, allright sport.\nListen.. I know you probably hate school right now.\nWe all did, certainly your mom and I did when we finished highschool.\nBut let me ask you this?\nIf you decide you want to go back to college later\nAre you gonna remember all that complex math you learned in highschool?\nHere let me show you something\n*teleports you back to the street*\n[[Back to the street->Street3]]\n",
+        "links": [
+          {
+            "name": "Back to the street",
+            "link": "Street3",
+            "pid": "7"
+          }
+        ],
+        "name": "Not College2",
+        "pid": "6",
+        "position": {
+          "x": "783",
+          "y": "589"
+        }
+      },
+      {
+        "text": "*You are now back at the street, but now there is a chalk board with *\n''2 + 2 = ?''\nOk sport! This here is an easy one! But as you answer, ask yourself. Will I remember how to do this a year, two years, even a decade from now?\n\n*You can also see the directions that indicate college and not college have signs with answers on them that have been created fairly hastily*\n[[4 / College -> Releif]]\n[[32 / Not College ->Not College 3]]",
+        "links": [
+          {
+            "name": "4 / College ",
+            "link": " Releif",
+            "pid": "19"
+          },
+          {
+            "name": "32 / Not College ",
+            "link": "Not College 3",
+            "pid": "8"
+          }
+        ],
+        "name": "Street3",
+        "pid": "7",
+        "position": {
+          "x": "947",
+          "y": "609"
+        }
+      },
+      {
+        "text": "GHASP!\nIt's happening quicker than I thought!\nYou've only been out of highschool for a day and you've already forgotten how to do 2 plus 2!\nWell. I hope you see now why it's so important that you go to college as quickly as possible!\nAt this rate you might forget how to read by next week!\n*Teleports you back to the street*\n[[Go Back To The Street->Street4]]\n",
+        "links": [
+          {
+            "name": "Go Back To The Street",
+            "link": "Street4",
+            "pid": "9"
+          }
+        ],
+        "name": "Not College 3",
+        "pid": "8",
+        "position": {
+          "x": "786",
+          "y": "721"
+        }
+      },
+      {
+        "text": "*You are back at the street again, but now you see a sign that has gibberish written on it*\nActually to be honest, I'm a little worried about that whole reading thing.\nTell me what does this sign say?\n[[Optometrist->College Job]]\n[[Cashier->Not College 4]]",
+        "links": [
+          {
+            "name": "Optometrist",
+            "link": "College Job",
+            "pid": "10"
+          },
+          {
+            "name": "Cashier",
+            "link": "Not College 4",
+            "pid": "11"
+          }
+        ],
+        "name": "Street4",
+        "pid": "9",
+        "position": {
+          "x": "947",
+          "y": "769"
+        }
+      },
+      {
+        "text": "Haha! Well, that's a relief.\nDo you know where you have to go to become an ... optometrist?\nWell.. you're a smart kid, i'll let you figure that one out on your own.\nLet me show you something else\n*Teleports you somewhere else*\n[[Teleport Somewhere Else->Shmisneyland]]",
+        "links": [
+          {
+            "name": "Teleport Somewhere Else",
+            "link": "Shmisneyland",
+            "pid": "14"
+          }
+        ],
+        "name": "College Job",
+        "pid": "10",
+        "position": {
+          "x": "1075",
+          "y": "768"
+        }
+      },
+      {
+        "text": "Well, sport this is more troubling to me than I thought.\nIt seems like the decision is making itself!\nNow, just turn around and lets make get that degree!\n\n[[Turn Around->College]] \n[[Continue->NotCollegeBoss]]",
+        "links": [
+          {
+            "name": "Turn Around",
+            "link": "College",
+            "pid": "3"
+          },
+          {
+            "name": "Continue",
+            "link": "NotCollegeBoss",
+            "pid": "12"
+          }
+        ],
+        "name": "Not College 4",
+        "pid": "11",
+        "position": {
+          "x": "781",
+          "y": "859"
+        }
+      },
+      {
+        "text": "NOOOOO!!\nThis is not how the story is supposed to go!\n*A demon drops down from the sky onto the street destroying some buildings*\nYOU WILL GO TO COLLEGE FOR YOUR OWN GOOD!\n*Boss fight ensues*\n\n[[Defeat Dad-Demon->NotCollegeEnding]]\n",
+        "links": [
+          {
+            "name": "Defeat Dad-Demon",
+            "link": "NotCollegeEnding",
+            "pid": "13"
+          }
+        ],
+        "name": "NotCollegeBoss",
+        "pid": "12",
+        "position": {
+          "x": "913",
+          "y": "942"
+        }
+      },
+      {
+        "text": "*The boss is now defeated and shrinks down to the size of a normal sheep*\n*It is clearly the sheeps father*\n\nListen sport,\nI've cared and protected you for your whole life.\nI've worked hard to give you the best possible start to your life as possible.\nAnd you've done great! You worked hard! You always tried your best.\nBut I guess the majority of my job is done.\nIt's your life now.\nAll I ask is that you reach out if you need any help.\nAnd let your dear old dad know how you're doing.\nAfter all I'm still your dad.\nGo get-em tiger.",
+        "name": "NotCollegeEnding",
+        "pid": "13",
+        "position": {
+          "x": "784",
+          "y": "1017"
+        }
+      },
+      {
+        "text": "*You are at the entrance of shmisneyland*\nWelcome to shmisneyland!\nYou love shmisneyland!\nGo ahead! Explore! My treat!\n\n(link:\"Go See Jimmy Jerboa!\")[\n*You go to see Jimmy Jerboa He is so small he is barely a spec on the screen*\nWow, look sport! It's Jimmy Jerboa!\nYou love Jimmy Jerboa! \nDoesn't he look just like you imagined?\nAnd sport I can garuntee you that whatever actor they shoved inside that tiny costume ... probably didn't go to college.\n]\n(link:\"Go To Balloon Stand\")[\nOh you look so happy with those balloons. Just like you did when you were a kid.\nIf you get your degree at school you can afford as many balloons as you want!\n]\n(link:\"Go Get Some Food\")[\nOh yeah. The food at shmisneyland is great! I particularly love the giant carrot stand with the big ear of corn.\n*You get a carrot that is in the shape of a turkey leg*\n]\n\n(link:\"Leave Shmisneyland\")[\n*You try to leave shmisneyland, but the door disappears and re-appears somewhere else*\nActually you know what! I've had so much fun with you here at shmisneyland remembering the good times.\nLets stay just a little bit longer!\n(link:\"Leave Shmisneyland\")[\n*The door moves again*\nYeah! Lets stay a little longer! Just like when you were a kid! You never wanted to leave!\n*You turn into a child again*\nHaha yes! It's perfect! Wooh! I'm having so much fun!\n(link:\"Leave Shmisneyland\")[\n*Now as you walk towards the door it moves away from you*\nOooh yeah! I can't even remember what we were doing before we came here. Something about college?\nYou're far too young to go to college we still have a few years to tackle that issue.\nI'm sure you'll make me proud!\nFor now lets just have fun\n*Game restarts*\n]\n]\n]",
+        "name": "Shmisneyland",
+        "pid": "14",
+        "position": {
+          "x": "1203",
+          "y": "769"
+        }
+      },
+      {
+        "text": "*You enter the grungy building*\n*After you enter the building the door slams behind you*\n*You hear the narrators voice coming from outside, but it's muffled*\nNo, wait... come back, don't go in there.\n*The narrator continues talking, but its too muffled to hear*\n\n[[Continue ->Fight Club Hallway]]",
+        "links": [
+          {
+            "name": "Continue ",
+            "link": "Fight Club Hallway",
+            "pid": "16"
+          }
+        ],
+        "name": " Grungy Building",
+        "pid": "15",
+        "position": {
+          "x": "1097",
+          "y": "451"
+        }
+      },
+      {
+        "text": "*You are in an empty hallway*\n[[Continue-> Fight Club]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": " Fight Club",
+            "pid": "17"
+          }
+        ],
+        "name": "Fight Club Hallway",
+        "pid": "16",
+        "position": {
+          "x": "1233",
+          "y": "450"
+        }
+      },
+      {
+        "text": "*You see a slightly tougher looking group of sheep*\n*You are standing in the middle of a circle drawn on the ground*\nAhahaha! Look at that we got new mutton.\nAnd they're in the ring.\n*You see a door that has an exit sighn on it opposite from where the tough looking sheep are*\n \n (link:\"Try To Escape\")[*You walk toward the outside of the circle, but are stopped by other sheep that come in through the door*]\n \n UH UH UHHH You can't leave the circle. This is the fight circle.\n The first rule of Fight Circle is that you can only leave by fighting someone in the circle.\n \n [[Fight the sheep -> Post Fight Ending]]",
+        "links": [
+          {
+            "name": "Fight the sheep ",
+            "link": " Post Fight Ending",
+            "pid": "18"
+          }
+        ],
+        "name": " Fight Club",
+        "pid": "17",
+        "position": {
+          "x": "1369",
+          "y": "452"
+        }
+      },
+      {
+        "text": "*You swiftly punch and knock out all the sheep in the room*\n*After you do the police swarm the room and surround the area*\nHoly cow! You took out all of these guys all on your own!\nWe just found out about these guys.\nIt wasn't too hard to find considering all they did was talk about their fight ring.",
+        "name": " Post Fight Ending",
+        "pid": "18",
+        "position": {
+          "x": "1498",
+          "y": "449"
+        }
+      },
+      {
+        "text": "Whew! That's a huge relief.\nOh and look at that! You ended up in the school major room.\nWell... you might as well pick one just to see where it leads you.\n\n[[Business ->College Money]]\n[[Art ->College Art]] ",
+        "links": [
+          {
+            "name": "Business ",
+            "link": "College Money",
+            "pid": "20"
+          },
+          {
+            "name": "Art ",
+            "link": "College Art",
+            "pid": "21"
+          }
+        ],
+        "name": " Releif",
+        "pid": "19",
+        "position": {
+          "x": "1081",
+          "y": "607"
+        }
+      },
+      {
+        "text": "And they chose the business degree.\nJust like histories most famous people.\nPeople like sheeplon musk, and schmeff bezos!\nActually schmeff bezos didn't even major in business.\nThat gave my child a large headstart on him.\nMy Child went to the classroom and worked diligently in their classes.\n\n[[Go to Class -> Business Class]]\n",
+        "links": [
+          {
+            "name": "Go to Class ",
+            "link": " Business Class",
+            "pid": "22"
+          }
+        ],
+        "name": "College Money",
+        "pid": "20",
+        "position": {
+          "x": "1230",
+          "y": "109"
+        }
+      },
+      {
+        "text": "Ahh the art major.\nThat's not exactly how my story was meant to go down, but ok!\nAs long as you have some interesting jobs in mind after you finish.\n.. and well... it is college so that's worth celebrating!\nI didn't even know you could draw.\nWould you mind drawing something for me?\n(set: $toCourt to false)\n[[Yes -> Draw]]\n[[No -> Not Draw]]",
+        "links": [
+          {
+            "name": "Yes ",
+            "link": " Draw",
+            "pid": "27"
+          },
+          {
+            "name": "No ",
+            "link": " Not Draw",
+            "pid": "28"
+          }
+        ],
+        "name": "College Art",
+        "pid": "21",
+        "position": {
+          "x": "1230",
+          "y": "215"
+        }
+      },
+      {
+        "text": "They Joined their dad's old frat and made plenty of business contacts\n\n\n[[Leave Classroom to go to frat part -> Frat Party]]",
+        "links": [
+          {
+            "name": "Leave Classroom to go to frat part ",
+            "link": " Frat Party",
+            "pid": "23"
+          }
+        ],
+        "name": " Business Class",
+        "pid": "22",
+        "position": {
+          "x": "1362",
+          "y": "109"
+        }
+      },
+      {
+        "text": "*You see a bunch of sheep laying around clearly drunk and unconcious*\nThen one night while talking with some frat guys they come up with an idea for a world changing app.\n\n[[Talk with group of sheep ->App]]",
+        "links": [
+          {
+            "name": "Talk with group of sheep ",
+            "link": "App",
+            "pid": "24"
+          }
+        ],
+        "name": " Frat Party",
+        "pid": "23",
+        "position": {
+          "x": "1495",
+          "y": "109"
+        }
+      },
+      {
+        "text": "They work hard to develop their app, which is eventually purchased by a large tech company for over 200 Million dollars!\n\n[[Sell App -> Space]]\n",
+        "links": [
+          {
+            "name": "Sell App ",
+            "link": " Space",
+            "pid": "25"
+          }
+        ],
+        "name": "App",
+        "pid": "24",
+        "position": {
+          "x": "1632",
+          "y": "113"
+        }
+      },
+      {
+        "text": "After the app was sold they had enough money to fulfill their shared dream with their father to launch into space and visit the ISS!\n\n[[Fly spaceship to ISS -> ISS ENding]]",
+        "links": [
+          {
+            "name": "Fly spaceship to ISS ",
+            "link": " ISS ENding",
+            "pid": "26"
+          }
+        ],
+        "name": " Space",
+        "pid": "25",
+        "position": {
+          "x": "1767",
+          "y": "116"
+        }
+      },
+      {
+        "text": "All the while thinking back to that fateful day they finally decided to leave their room and take on the rest of their life!\n\nFIN",
+        "name": " ISS ENding",
+        "pid": "26",
+        "position": {
+          "x": "1902",
+          "y": "110"
+        }
+      },
+      {
+        "text": "*A canvas shows up in front of you, and a sign that says draw me my favorite thing!*\n\n(input-box:\"=XX=\",\"Type Drawing Here\")\n\n[[Submit Drawing -> Post Drawing]]",
+        "links": [
+          {
+            "name": "Submit Drawing ",
+            "link": " Post Drawing",
+            "pid": "29"
+          }
+        ],
+        "name": " Draw",
+        "pid": "27",
+        "position": {
+          "x": "2299",
+          "y": "255"
+        }
+      },
+      {
+        "text": "Oh.. well..\nOk I guess it's a little embarrasing to show your personal expression to your father.\nThe one who raised you.\nThe one who bathed you.\nThe one who gave up his dream of becoming the next big television judge in order to see your successful passage into adulthood.\nBut it's fine.\n\"The Final Shearing\"\nThat's what it would have been called.\n(set: $toCourt to true)\n[[ Continue -> The Final Shearing]]",
+        "links": [
+          {
+            "name": " Continue ",
+            "link": " The Final Shearing",
+            "pid": "30"
+          }
+        ],
+        "name": " Not Draw",
+        "pid": "28",
+        "position": {
+          "x": "1368",
+          "y": "341"
+        }
+      },
+      {
+        "text": "(if:$toCourt is false)[\nHaha! Wow, I'm impressed! \nNot really by the art that could use some work.\nBut how did you know that was my favorite thing?\nYour mother must have told you.\nWell at least my money won't be going to waste, because I think those lessons will help you a lot.\n]\n(if:$toCourt is true)[\nWell, It certainly isn't the Mona Lisa, but it will do.\nI appreciate you drawing this for me.\nConsider your sentance served.\nand at least i know my money won't be going to waste\nYou have a lot of learning to do\n]\n\n[[ Go To Art School ->ArtSchool]]",
+        "links": [
+          {
+            "name": " Go To Art School ",
+            "link": "ArtSchool",
+            "pid": "38"
+          }
+        ],
+        "name": " Post Drawing",
+        "pid": "29",
+        "position": {
+          "x": "2420",
+          "y": "259"
+        }
+      },
+      {
+        "text": "*A Theme song plays*\n*Announcer voice*\nON TODAY'S EPISODE OF\nTHE FINAL SHEARING\nARE YOU A BAD CHILD?\nLETS FIND OUT.\nTHE HONORABLE JUDGE JEBADIAH WOOLY PRESIDING\n\nHello everyone. Court is now in session.\nWill the defendent please raise their right hoof?\n\n[[ Raise Hoof -> Raise Hoof]]\n",
+        "links": [
+          {
+            "name": " Raise Hoof ",
+            "link": " Raise Hoof",
+            "pid": "31"
+          }
+        ],
+        "name": " The Final Shearing",
+        "pid": "30",
+        "position": {
+          "x": "1500",
+          "y": "341"
+        }
+      },
+      {
+        "text": "Now according to this report I have before me\nIt says that you are a son/daughter is this correct\n\n[[Yes -> Law Yes Response]]\n[[No -> Law No Response]]",
+        "links": [
+          {
+            "name": "Yes ",
+            "link": " Law Yes Response",
+            "pid": "32"
+          },
+          {
+            "name": "No ",
+            "link": " Law No Response",
+            "pid": "33"
+          }
+        ],
+        "name": " Raise Hoof",
+        "pid": "31",
+        "position": {
+          "x": "1623",
+          "y": "345"
+        }
+      },
+      {
+        "text": "Hmm, ok very good.\nIt looks like you are the child of....\nMe...\nHmm very interesting. I can't say that this is precedented, but It's my court so I'll allow it.\n\n[[Continue -> Law Response Resolution ]] ",
+        "links": [
+          {
+            "name": "Continue ",
+            "link": " Law Response Resolution ",
+            "pid": "34"
+          }
+        ],
+        "name": " Law Yes Response",
+        "pid": "32",
+        "position": {
+          "x": "1745",
+          "y": "347"
+        }
+      },
+      {
+        "text": "Hmmm,\nWell according to this report it says you are\nI'm going to take that as a joke, but let me remind you\nYou are in a court of law, and will be held in contempt of court for misbehaviour\n\n[[ Continue -> Law Response Resolution ]]",
+        "links": [
+          {
+            "name": " Continue ",
+            "link": " Law Response Resolution ",
+            "pid": "34"
+          }
+        ],
+        "name": " Law No Response",
+        "pid": "33",
+        "position": {
+          "x": "1743",
+          "y": "463"
+        }
+      },
+      {
+        "text": "So I see here you ... the defendent ... are being chared with the crime of\nbeing a bad child\nDefense how do you plead?\n\n[[Guilty -> Guilty]]\n[[Not Guilty -> Not Guilty]]",
+        "links": [
+          {
+            "name": "Guilty ",
+            "link": " Guilty",
+            "pid": "35"
+          },
+          {
+            "name": "Not Guilty ",
+            "link": " Not Guilty",
+            "pid": "36"
+          }
+        ],
+        "name": " Law Response Resolution ",
+        "pid": "34",
+        "position": {
+          "x": "1874",
+          "y": "349"
+        }
+      },
+      {
+        "text": "Well I believe we have our verdict then\n\n[[ Continue -> Verdict]]\n",
+        "links": [
+          {
+            "name": " Continue ",
+            "link": " Verdict",
+            "pid": "37"
+          }
+        ],
+        "name": " Guilty",
+        "pid": "35",
+        "position": {
+          "x": "2016",
+          "y": "346"
+        }
+      },
+      {
+        "text": "Inconsequential\nI am your father and I deem you guilty!\n\n[[Continue -> Verdict]] ",
+        "links": [
+          {
+            "name": "Continue ",
+            "link": " Verdict",
+            "pid": "37"
+          }
+        ],
+        "name": " Not Guilty",
+        "pid": "36",
+        "position": {
+          "x": "2013",
+          "y": "470"
+        }
+      },
+      {
+        "text": "By the state of Woolsconsin I deem you guilty of being a bad child.\n\nYour punishment will be to paint me one painting.\nCase dismissed.\n\n[[Paint Painting -> Draw]] ",
+        "links": [
+          {
+            "name": "Paint Painting ",
+            "link": " Draw",
+            "pid": "27"
+          }
+        ],
+        "name": " Verdict",
+        "pid": "37",
+        "position": {
+          "x": "2156",
+          "y": "353"
+        }
+      },
+      {
+        "text": "Long story short,\nYeah they went to art school.\nYeah they did a great job and now they are back living with me.\nYeah of course I'm proud of them!\nI hear they may have their first job as a mural painter soon!\nI just hope they are happy.",
+        "name": "ArtSchool",
+        "pid": "38",
+        "position": {
+          "x": "2551",
+          "y": "264"
+        }
+      }
+    ],
+    "name": "Sheep Story Prototype 2",
+    "startnode": "1",
+    "creator": "Twine",
+    "creator-version": "2.3.16",
+    "ifid": "C16AAA7C-121C-4D40-8FDC-A696D0D7AAA7"
+  }
