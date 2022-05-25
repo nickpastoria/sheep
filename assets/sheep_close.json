@@ -1,6 +1,6 @@
 { "frames": {
    "0": {
-    "frame": { "x": 1, "y": 1, "w": 172, "h": 125 },
+    "frame": { "x": 372, "y": 125, "w": 172, "h": 125 },
     "rotated": false,
     "trimmed": true,
     "spriteSourceSize": { "x": 72, "y": 117, "w": 170, "h": 123 },
@@ -8,7 +8,7 @@
     "duration": 100
    },
    "1": {
-    "frame": { "x": 174, "y": 1, "w": 172, "h": 125 },
+    "frame": { "x": 183, "y": 126, "w": 172, "h": 125 },
     "rotated": false,
     "trimmed": true,
     "spriteSourceSize": { "x": 72, "y": 117, "w": 170, "h": 123 },
@@ -16,10 +16,50 @@
     "duration": 100
    },
    "2": {
-    "frame": { "x": 1, "y": 127, "w": 172, "h": 124 },
+    "frame": { "x": 1, "y": 245, "w": 172, "h": 124 },
     "rotated": false,
     "trimmed": true,
     "spriteSourceSize": { "x": 72, "y": 118, "w": 170, "h": 122 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "3": {
+    "frame": { "x": 189, "y": 1, "w": 182, "h": 124 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 61, "y": 118, "w": 180, "h": 122 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "4": {
+    "frame": { "x": 372, "y": 1, "w": 183, "h": 123 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 55, "y": 119, "w": 181, "h": 121 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "5": {
+    "frame": { "x": 1, "y": 1, "w": 187, "h": 121 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 44, "y": 121, "w": 185, "h": 119 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "6": {
+    "frame": { "x": 1, "y": 123, "w": 181, "h": 121 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 47, "y": 121, "w": 179, "h": 119 },
+    "sourceSize": { "w": 320, "h": 240 },
+    "duration": 100
+   },
+   "7": {
+    "frame": { "x": 189, "y": 1, "w": 182, "h": 124 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 61, "y": 118, "w": 180, "h": 122 },
     "sourceSize": { "w": 320, "h": 240 },
     "duration": 100
    }
@@ -29,10 +69,11 @@
   "version": "1.2.25-x64",
   "image": "sheep_close.png",
   "format": "RGBA8888",
-  "size": { "w": 346, "h": 251 },
+  "size": { "w": 555, "h": 369 },
   "scale": "1",
   "frameTags": [
-   { "name": "idle", "from": 0, "to": 2, "direction": "forward" }
+   { "name": "idle", "from": 0, "to": 2, "direction": "forward" },
+   { "name": "damage", "from": 3, "to": 7, "direction": "forward" }
   ],
   "layers": [
    { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
