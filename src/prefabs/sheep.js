@@ -10,26 +10,40 @@ class Sheep {
         this.moveSpeed = 100;
         this.facing = 0;
         this.face = 0;
+        this.i = 0;
+        this.j = 1;
     }
 
     preload () {
     }
 
-    update (moving, startFacing, x, y) {
-
+    update (moving, path, startFacing, x, y) {
+        console.log("sx ", this.sprite.body.x, "sy ", this.sprite.body.y);
         // moving 
-        if (moving) {   
-             this.scene.physics.moveTo(this.sprite, x, y);
+        if (moving) {               
+            
+            let px, py;
+            this.scene.physics.moveTo(this.sprite, path[this.i], path[this.j], 60, 3000);
 
-            if (this.sprite.body.speed != 0){
-                this.facing = Math.floor(Phaser.Math.Angle.Normalize(-this.sprite.body.angle + Math.PI/2) * (180/Math.PI) / 45);
-                // console.log("facing", this.facing);
-            }        
-            this.sprite.play({
-                key: this.tags[(this.sprite.body.speed != 0 ? (this.facing * 2) + 1 : (this.facing * 2))].key,
-                repeat: -1,
-                timeScale: 0.5,
-            }, true)
+            if (!(this.i + 2 == path.length)) {
+                if (this.withinRange(this.sprite.body.x, this.sprite.body.y, path[this.i], path[this.j])) {
+                    this.i += 2; this.j += 2;                    
+                    // px = path[i];
+                    // py = path[j];
+                    this.scene.physics.moveTo(this.sprite, path[this.i], path[this.j], 60, 3000);
+                    console.log("Moving to next point");
+                }
+            
+                if (this.sprite.body.speed != 0){
+                    this.facing = Math.floor(Phaser.Math.Angle.Normalize(-this.sprite.body.angle + Math.PI/2) * (180/Math.PI) / 45);
+                    // console.log("facing", this.facing);
+                }        
+                this.sprite.play({
+                    key: this.tags[(this.sprite.body.speed != 0 ? (this.facing * 2) + 1 : (this.facing * 2))].key,
+                    repeat: -1,
+                    timeScale: 0.5,
+                }, true)
+            }
         }
 
         // facing
@@ -39,6 +53,18 @@ class Sheep {
         }
     }
 
+    withinRange (sheepX, sheepY, x, y) {
+        console.log("sx,sy,x,y: ", sheepX, sheepY, x, y);
+        let x_dst = Math.abs(sheepX - x);
+        let y_dst = Math.abs(sheepY - y);
+        console.log("x_dst: ", x_dst, "y_dst ", y_dst);
+
+        if (x_dst < 20 && y_dst < 20) {
+            console.log("withinRange");
+            return true;
+        }
+        return false;
+    }
 
 
     

@@ -33,9 +33,23 @@ class Street1 extends Phaser.Scene {
         // load objects       
         const p1Spawn = map.findObject("sheep", obj => obj.name === "p1spawn");        // player spawn point
         const s1Spawn = map.findObject("sheep", obj => obj.name === "s1spawn");        // sheep spawn point
+        const s2Spawn = map.findObject("sheep", obj => obj.name === "s2spawn");        // sheep spawn point
         const nextScene = map.createFromObjects("transition", { name: "nextScene" });  // nextscene object
         this.physics.world.enable(nextScene, Phaser.Physics.Arcade.STATIC_BODY);
-        
+
+        // pathing
+        this.path = [];
+        const obj = map.getObjectLayer('path');
+        obj.objects.forEach(
+            (object) => {
+                if (object.type === 'path') {
+                    console.log("x", object.x, "y", object.y);
+                    this.path.push(object.x);
+                    this.path.push(object.y);
+                }                
+            }
+        )        
+        console.log(this.path);
                
         // collision
         buildings_Layer.setCollisionByProperty({ collides: true });        
@@ -46,6 +60,7 @@ class Street1 extends Phaser.Scene {
         // spawn player and sheep
         this.p1 = new Player(this, this.sheep_tags, p1Spawn.x, p1Spawn.y);
         this.s1 = new Sheep(this, this.sheep_tags, s1Spawn.x, s1Spawn.y, 12);
+        this.s2 = new Sheep(this, this.sheep_tags, s2Spawn.x, s2Spawn.y, 12);
 
         // collider        
         this.physics.add.collider(this.p1.sprite, buildings_Layer); 
@@ -55,7 +70,8 @@ class Street1 extends Phaser.Scene {
 
     update () {
         this.p1.update();
-        // sheep update(moving, startFacing, x, y)
-        this.s1.update(false, true, this.p1.sprite.x, this.p1.sprite.y);
+        // sheep update(moving, path[], startFacing, x, y)
+        this.s1.update(true, this.path, false, this.p1.sprite.x, this.p1.sprite.y);
+        // this.s2.update(true, this.path, false, this.p1.sprite.x, this.p1.sprite.y);
     }
 }

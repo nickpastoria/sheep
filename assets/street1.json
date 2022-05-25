@@ -183,7 +183,37 @@
          "draworder":"topdown",
          "id":11,
          "name":"path",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":43,
+                 "name":"point1",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"path",
+                         "type":"object",
+                         "value":44
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":354,
+                 "y":148
+                }, 
+                {
+                 "height":0,
+                 "id":44,
+                 "name":"point2",
+                 "point":true,
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":351.5,
+                 "y":224
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -213,7 +243,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":43,
+ "nextobjectid":45,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.4",
@@ -222,7 +252,7 @@
         {
          "columns":8,
          "firstgid":1,
-         "image":"city_tiles.png",
+         "image":"..\/..\/tiled\/city_tiles.png",
          "imageheight":224,
          "imagewidth":256,
          "margin":0,
