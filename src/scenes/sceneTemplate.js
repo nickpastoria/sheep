@@ -32,24 +32,22 @@ class Street1 extends Phaser.Scene {
         const bg_far_Layer = map.createLayer("bg_far", tileSet, 0, 0);        // bg_far
         // load objects       
         const p1Spawn = map.findObject("sheep", obj => obj.name === "p1spawn");        // player spawn point
-        const s1Spawn = map.findObject("sheep", obj => obj.name === "s1spawn");        // sheep spawn point
-        const s2Spawn = map.findObject("sheep", obj => obj.name === "s2spawn");        // sheep spawn point
-        const nextScene = map.createFromObjects("transition", { name: "nextScene" });  // nextscene object
-        this.physics.world.enable(nextScene, Phaser.Physics.Arcade.STATIC_BODY);
+        const d1 = map.createFromObjects("transition", { name: "d1" });  // transition object
+        this.physics.world.enable(d1, Phaser.Physics.Arcade.STATIC_BODY);
 
         // pathing
-        this.path = [];
-        const obj = map.getObjectLayer('path');
-        obj.objects.forEach(
-            (object) => {
-                if (object.type === 'path') {
-                    console.log("x", object.x, "y", object.y);
-                    this.path.push(object.x);
-                    this.path.push(object.y);
-                }                
-            }
-        )        
-        console.log(this.path);
+        // this.path = [];
+        // const obj = map.getObjectLayer('path');
+        // obj.objects.forEach(
+        //     (object) => {
+        //         if (object.type === 'path') {
+        //             console.log("x", object.x, "y", object.y);
+        //             this.path.push(object.x);
+        //             this.path.push(object.y);
+        //         }                
+        //     }
+        // )        
+        // console.log(this.path);
                
         // collision
         buildings_Layer.setCollisionByProperty({ collides: true });        
@@ -59,12 +57,10 @@ class Street1 extends Phaser.Scene {
 
         // spawn player and sheep
         this.p1 = new Player(this, this.sheep_tags, p1Spawn.x, p1Spawn.y);
-        this.s1 = new Sheep(this, this.sheep_tags, s1Spawn.x, s1Spawn.y, 12);
-        this.s2 = new Sheep(this, this.sheep_tags, s2Spawn.x, s2Spawn.y, 12);
 
         // collider        
         this.physics.add.collider(this.p1.sprite, buildings_Layer); 
-        this.physics.add.overlap(this.p1.sprite, nextScene, ()=> this.scene.start("ending"));
+        this.physics.add.overlap(this.p1.sprite, d1, ()=> this.scene.start("ending")); // Scene Transition
 
     }
 
