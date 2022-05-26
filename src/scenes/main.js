@@ -16,7 +16,7 @@ let config = {
         autoCenter: Phaser.Scale.CENTER_BOTH,
         zoom: Phaser.Scale.ZOOM_2X,
     },
-    pixelArt: true,
+    pixelArt: true,        
     scene: [Load, Street1, Topdown, Special, Boxing, GameOver, Ending],
     /*
     callbacks: {

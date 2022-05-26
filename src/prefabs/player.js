@@ -5,7 +5,7 @@ class Player {
         this.sprite = scene.physics.add.sprite(x, y);
         this.sprite.play(this.tags[0].key);
         this.sprite.body.setCollideWorldBounds(true);
-        this.sprite.body.setSize(23, 26, false);
+        this.sprite.body.setSize(20, 26, false);
         this.sprite.body.setOffset(6,3);
         this.moveSpeed = 100;
         this.facing = 0;
@@ -27,6 +27,6 @@ class Player {
         let moveX = (-keyA.isDown + keyD.isDown);
         let moveY = (-keyW.isDown + keyS.isDown);
         this.sprite.body.setVelocityX(moveX * this.moveSpeed);
-        this.sprite.body.setVelocityY(moveY * this.moveSpeed);
+        this.sprite.body.setVelocityY(moveY * this.moveSpeed);        
     }
 }

@@ -63,8 +63,8 @@
         {
          "data":[7, 7, 7, 0, 0, 0, 0, 0, 0, 7, 7, 7,
             7, 7, 7, 0, 0, 3, 6, 0, 0, 7, 7, 7,
-            7, 7, 7, 0, 0, 19, 19, 0, 0, 7, 7, 7,
-            7, 7, 7, 0, 0, 19, 19, 0, 0, 7, 7, 7,
+            7, 7, 7, 0, 0, 7, 7, 0, 0, 7, 7, 7,
+            7, 7, 7, 0, 0, 7, 7, 0, 0, 7, 7, 7,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -134,8 +134,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":14.7755892799483,
-                 "y":175.963835970294
+                 "x":14.7756,
+                 "y":175.964
                 }, 
                 {
                  "height":0,
@@ -146,8 +146,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":237.75266386826,
-                 "y":146.412657410397
+                 "x":60.086,
+                 "y":155.246
                 }, 
                 {
                  "height":0,
@@ -158,8 +158,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":273.348401679044,
-                 "y":145.069422021311
+                 "x":100.848,
+                 "y":134.069
                 }, 
                 {
                  "height":0,
@@ -170,8 +170,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":143.054568937682,
-                 "y":179.321924443009
+                 "x":18.055,
+                 "y":141.322
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -186,33 +186,69 @@
          "objects":[
                 {
                  "height":0,
-                 "id":43,
+                 "id":46,
                  "name":"point1",
                  "point":true,
                  "properties":[
                         {
                          "name":"path",
                          "type":"object",
-                         "value":44
+                         "value":47
                         }],
                  "rotation":0,
                  "type":"path",
                  "visible":true,
                  "width":0,
-                 "x":354,
-                 "y":148
+                 "x":141.5,
+                 "y":136
                 }, 
                 {
                  "height":0,
-                 "id":44,
+                 "id":47,
                  "name":"point2",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"path",
+                         "type":"object",
+                         "value":48
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":359.5,
+                 "y":138.5
+                }, 
+                {
+                 "height":0,
+                 "id":48,
+                 "name":"point3",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"path",
+                         "type":"object",
+                         "value":49
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":360,
+                 "y":188.5
+                }, 
+                {
+                 "height":0,
+                 "id":49,
+                 "name":"point4",
                  "point":true,
                  "rotation":0,
                  "type":"path",
                  "visible":true,
                  "width":0,
-                 "x":351.5,
-                 "y":224
+                 "x":142.5,
+                 "y":187
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -233,8 +269,8 @@
                  "type":"",
                  "visible":false,
                  "width":0,
-                 "x":368.046496609622,
-                 "y":143.726186632225
+                 "x":368.046,
+                 "y":143.726
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -243,7 +279,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":45,
+ "nextobjectid":51,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.4",
