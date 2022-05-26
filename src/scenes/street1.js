@@ -4,7 +4,7 @@ class Street1 extends Phaser.Scene {
     }
 
     preload () {        
-        this.load.image("tileset", "./assets/city_tiles.png");                    // tileset  
+        this.load.image("tileset", "./assets/tiles.png");                    // tileset  
         this.load.tilemapTiledJSON("street1_map", "./assets/street1.json");       // street1 map               
         this.load.aseprite('sheep', './assets/sheep.png', './assets/sheep.json'); // sheep aseprite
     }
@@ -67,7 +67,7 @@ class Street1 extends Phaser.Scene {
     update () {
         this.p1.update();
         // sheep update(moving, path[], startFacing, x, y)
-        this.s1.update(true, this.path, false, this.p1.sprite.x, this.p1.sprite.y);
+        // this.s1.update(true, this.path, false, this.p1.sprite.x, this.p1.sprite.y);
         // this.s2.update(true, this.path, false, this.p1.sprite.x, this.p1.sprite.y);
     }
 }

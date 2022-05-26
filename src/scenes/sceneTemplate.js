@@ -4,7 +4,7 @@ class Street1 extends Phaser.Scene {
     }
 
     preload () {        
-        this.load.image("tileset", "./assets/city_tiles.png");                    // tileset  
+        this.load.image("tileset", "./assets/tiles.png");                    // tileset  
         this.load.tilemapTiledJSON("street1_map", "./assets/street1.json");       // street1 map               
         this.load.aseprite('sheep', './assets/sheep.png', './assets/sheep.json'); // sheep aseprite
     }
