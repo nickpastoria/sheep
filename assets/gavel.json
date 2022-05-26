@@ -1,0 +1,83 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 357, "y": 229, "w": 180, "h": 224 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 122, "y": 21, "w": 178, "h": 222 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 357, "y": 1, "w": 180, "h": 227 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 122, "y": 18, "w": 178, "h": 225 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 1, "y": 1, "w": 178, "h": 245 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 122, "y": 0, "w": 176, "h": 243 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 100
+   },
+   "3": {
+    "frame": { "x": 180, "y": 1, "w": 176, "h": 245 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 122, "y": 0, "w": 174, "h": 243 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 100
+   },
+   "4": {
+    "frame": { "x": 171, "y": 247, "w": 168, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 122, "y": 103, "w": 166, "h": 140 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 100
+   },
+   "5": {
+    "frame": { "x": 1, "y": 247, "w": 169, "h": 163 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 122, "y": 82, "w": 167, "h": 161 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 100
+   },
+   "6": {
+    "frame": { "x": 171, "y": 247, "w": 168, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 122, "y": 103, "w": 166, "h": 140 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 100
+   },
+   "7": {
+    "frame": { "x": 171, "y": 247, "w": 168, "h": 142 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 122, "y": 103, "w": 166, "h": 140 },
+    "sourceSize": { "w": 384, "h": 256 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25-x64",
+  "image": "gavel.png",
+  "format": "I8",
+  "size": { "w": 537, "h": 453 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "slam", "from": 0, "to": 7, "direction": "forward" }
+  ],
+  "layers": [
+   { "name": "Layer", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
