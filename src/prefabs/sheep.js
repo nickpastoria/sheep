@@ -4,7 +4,7 @@ class Sheep {
         this.tags = tags;
         this.sprite = scene.physics.add.sprite(x, y);
         this.sprite.play(this.tags[face].key);
-        this.sprite.body.setCollideWorldBounds(true);
+        this.sprite.body.setCollideWorldBounds(false);
         this.sprite.body.setSize(20, 26, false); // 23, 26, F
         this.sprite.body.setOffset(6, 3);
         this.moveSpeed = 100;

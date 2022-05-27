@@ -1,11 +1,11 @@
-class Street1 extends Phaser.Scene {
+class Street2 extends Phaser.Scene {
     constructor() {
-        super('street1');
+        super('street2');
     }
 
     preload () {        
         this.load.image("tileset", "./assets/city_tiles.png");                    // tileset  
-        this.load.tilemapTiledJSON("street1_map", "./assets/street1.json");       // street1 map               
+        this.load.tilemapTiledJSON("street2_map", "./assets/street2.json");       // street1 map               
         this.load.aseprite('sheep', './assets/sheep.png', './assets/sheep.json'); // sheep aseprite
     }
     
@@ -22,7 +22,7 @@ class Street1 extends Phaser.Scene {
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         
         // map and tileset
-        const map = this.add.tilemap("street1_map");
+        const map = this.add.tilemap("street2_map");
         const tileSet = map.addTilesetImage("tiles", "tileset");
         // load layers
         const fg_Layer = map.createLayer("fg", tileSet, 0, 0);                // fg
@@ -35,6 +35,8 @@ class Street1 extends Phaser.Scene {
         const s1Spawn = map.findObject("sheep", obj => obj.name === "s1spawn");        // sheep spawn point
         const s2Spawn = map.findObject("sheep", obj => obj.name === "s2spawn");        // sheep spawn point
         const s3Spawn = map.findObject("sheep", obj => obj.name === "s3spawn");        // sheep spawn point
+        const s4Spawn = map.findObject("sheep", obj => obj.name === "s4spawn");        // sheep spawn point
+        const s5Spawn = map.findObject("sheep", obj => obj.name === "s5spawn");        // sheep spawn point
         const nextScene = map.createFromObjects("transition", { name: "nextScene" });  // nextscene object
         this.physics.world.enable(nextScene, Phaser.Physics.Arcade.STATIC_BODY);
 
@@ -63,6 +65,8 @@ class Street1 extends Phaser.Scene {
         this.s1 = new Sheep(this, this.sheep_tags, s1Spawn.x, s1Spawn.y, 6);
         this.s2 = new Sheep(this, this.sheep_tags, s2Spawn.x, s2Spawn.y, 12);
         this.s3 = new Sheep(this, this.sheep_tags, s3Spawn.x, s3Spawn.y, 12);
+        this.s4 = new Sheep(this, this.sheep_tags, s4Spawn.x, s4Spawn.y, 12);
+        this.s5 = new Sheep(this, this.sheep_tags, s5Spawn.x, s5Spawn.y, 12);
 
         // collider        
         this.physics.add.collider(this.p1.sprite, buildings_Layer);                 
@@ -72,14 +76,18 @@ class Street1 extends Phaser.Scene {
         // this.physics.add.collider(this.s2.sprite, this.s3.sprite); //, () => this.s2.sprite.x += 1);//  
         // this.physics.add.collider(this.s3.sprite, this.s1.sprite); //, () => this.s3.sprite.x += 1);// 
         // this.physics.add.collider(this.s3.sprite, this.s2.sprite); //, () => this.s3.sprite.x += 1);//         
-        this.physics.add.overlap(this.p1.sprite, nextScene, ()=> this.scene.start("street2"));
+        this.physics.add.overlap(this.p1.sprite, nextScene, ()=> this.scene.start("ending"));
         this.physics.add.collider(this.p1.sprite, this.s1.sprite);
         this.physics.add.collider(this.p1.sprite, this.s2.sprite);
         this.physics.add.collider(this.p1.sprite, this.s3.sprite);        
+        this.physics.add.collider(this.p1.sprite, this.s4.sprite);        
+        this.physics.add.collider(this.p1.sprite, this.s5.sprite);        
 
         this.s1.sprite.body.setBounce(1);
         this.s2.sprite.body.setBounce(1);
         this.s3.sprite.body.setBounce(1);
+        this.s4.sprite.body.setBounce(1);
+        this.s5.sprite.body.setBounce(1);
      
     }
 
@@ -88,8 +96,8 @@ class Street1 extends Phaser.Scene {
         
         let pause = false;        // pause pathing
         let startFacing = false;  // start facing player (can do while pathing)
-        let gotoStart = true;     // do path again (must be F if below T)
-        let jumpttoStart = false; // teleport to start and path again (should be, but technically doesnt need to be F if above is T)
+        let gotoStart = false;     // do path again (must be F if below T)
+        let jumpttoStart = true; // teleport to start and path again (should be, but technically doesnt need to be F if above is T)
         // pause and start facing if player x exceeds 150
         if (this.p1.sprite.body.x > 150) {
             pause = true;
@@ -100,9 +108,12 @@ class Street1 extends Phaser.Scene {
             startFacing = false;
         }
         // sheep update(moving, gotoStart, jumpttoStart, pause, path[], startFacing, player.x, player.y)
+        this.s1.update(true, gotoStart, jumpttoStart, pause, this.path, startFacing, this.p1.sprite.x, this.p1.sprite.y);
         this.s2.update(true, gotoStart, jumpttoStart, pause, this.path, startFacing, this.p1.sprite.x, this.p1.sprite.y);
         this.s3.update(true, gotoStart, jumpttoStart, pause, this.path, startFacing, this.p1.sprite.x, this.p1.sprite.y);
-        this.s1.update(true, gotoStart, jumpttoStart, pause, this.path, startFacing, this.p1.sprite.x, this.p1.sprite.y);        
+        this.s4.update(true, gotoStart, jumpttoStart, pause, this.path, startFacing, this.p1.sprite.x, this.p1.sprite.y);
+        this.s5.update(true, gotoStart, jumpttoStart, pause, this.path, startFacing, this.p1.sprite.x, this.p1.sprite.y);
+
 
 
     }
