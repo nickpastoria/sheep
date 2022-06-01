@@ -56,6 +56,15 @@ class Boxing extends Phaser.Scene {
                 }
                 else {
                     target = 'gameover';
+                    this.boxer.play({
+                        key: this.boxer_tags[2].key,
+                        timeScale:1.25
+                    });
+                    this.sheep.play({
+                        key: this.sheep_tags[1].key,
+                        repeat: 0,
+                        timeScale:0.75,
+                    });
                 }
                 this.transitioning = true;
                 this.scene.transition({target: target, duration: 2000,});
