@@ -4,7 +4,7 @@ function loadPlayerCharacter(scene) {
 }
 
 function loadTileMap(scene, scene_name) {
-    scene.load.tilemapTiledJSON(`${scene_name}_map`, `./assets/maps/${scene_name}.json`);       // Level tile map  
+    scene.load.tilemapTiledJSON(`${scene_name}_map`, `./assets/Maps/${scene_name}.json`);       // Level tile map  
 }
 
 function topDownCreate(scene, scene_name, next_scene, tiles_name) {
@@ -66,8 +66,8 @@ class tdTemplate extends Phaser.Scene {
 
     preload () {        
         // loadCityTiles(this);          
-        this.load.image("tiles", "./assets/images/city_tiles.png");
-        this.load.image("room_tiles", "./assets/images/room_tiles.png");          // tileset  
+        this.load.image("tiles", "./assets/Images/city_tiles.png");
+        this.load.image("room_tiles", "./assets/Images/room_tiles.png");          // tileset  
         loadTileMap(this, this.scene_name);           
         loadPlayerCharacter(this);
         
