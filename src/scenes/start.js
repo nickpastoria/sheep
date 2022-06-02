@@ -1,6 +1,3 @@
-function loadCityTiles(scene) {
-    scene.load.image("tileset", "./assets/images/city_tiles.png"); 
-}
 
 function loadPlayerCharacter(scene) {
     scene.load.aseprite('sheep', './assets/sheep.png', './assets/sheep.json'); // sheep aseprite
@@ -10,7 +7,7 @@ function loadTileMap(scene, scene_name) {
     scene.load.tilemapTiledJSON(`${scene_name}_map`, `./assets/maps/${scene_name}.json`);       // Level tile map  
 }
 
-function topDownCreate(scene, scene_name, next_scene) {
+function topDownCreate(scene, scene_name, next_scene, tiles_name) {
             // sheep tags and camera
             scene.sheep_tags = scene.anims.createFromAseprite('sheep');
             scene.cameras.main.setBackgroundColor('FFFFFF');
@@ -23,13 +20,14 @@ function topDownCreate(scene, scene_name, next_scene) {
             
             // map and tileset
             const map = scene.add.tilemap(`${scene_name}_map`);
-            const tileSet = map.addTilesetImage("tiles", "tileset");
+            console.log(`Loading tileset named ${tiles_name}`);
+            const tileSet = map.addTilesetImage(tiles_name, tiles_name);
             // load layers
-            const fg_Layer = map.createLayer("fg", tileSet, 0, 0);                // fg
-            const buildings_Layer = map.createLayer("buildings", tileSet, 0, 0);  // buildings
-            const ground_1_Layer = map.createLayer("ground_1", tileSet, 0, 0);    // ground_1
-            const ground_2_Layer = map.createLayer("ground_2", tileSet, 0, 0);    // ground_2
             const bg_far_Layer = map.createLayer("bg_far", tileSet, 0, 0);        // bg_far
+            const ground_2_Layer = map.createLayer("ground_2", tileSet, 0, 0);    // ground_2
+            const ground_1_Layer = map.createLayer("ground_1", tileSet, 0, 0);    // ground_1
+            const buildings_Layer = map.createLayer("buildings", tileSet, 0, 0);  // buildings
+            const fg_Layer = map.createLayer("fg", tileSet, 0, 0);                // fg
     
             // load objects       
             const p1Spawn = map.findObject("sheep", obj => obj.name === "p1spawn");        // player spawn point
@@ -59,14 +57,17 @@ function topDownCreate(scene, scene_name, next_scene) {
 
 class tdTemplate extends Phaser.Scene {
     
-    constructor(scene_name, next_scene) {
+    constructor(scene_name, next_scene, tiles_name = "tiles") {
         super(scene_name);
         this.scene_name = scene_name;
         this.next_scene = next_scene;
+        this.tiles_name = tiles_name;
     }
 
     preload () {        
-        loadCityTiles(this);                   // tileset  
+        // loadCityTiles(this);          
+        this.load.image("tiles", "./assets/images/city_tiles.png");
+        this.load.image("room_tiles", "./assets/images/room_tiles.png");          // tileset  
         loadTileMap(this, this.scene_name);           
         loadPlayerCharacter(this);
         
@@ -74,7 +75,7 @@ class tdTemplate extends Phaser.Scene {
     
 
     create () {
-        topDownCreate(this, this.scene_name, this.next_scene)
+        topDownCreate(this, this.scene_name, this.next_scene, this.tiles_name);
         console.log(`Now in: ${this.scene_name}`);
     }
 
@@ -85,19 +86,19 @@ class tdTemplate extends Phaser.Scene {
 
 class Start extends tdTemplate {
     constructor() {
-        super(`start`, [`street`]);
+        super(`start`, [`street`], "room_tiles");
     }
 }
 
 class Street extends tdTemplate {
     constructor() {
-        super(`street`, [`college`, `not_college`]);
+        super(`street`, [`college`]);
     }
 }
 
 class College extends tdTemplate {
     constructor() {
-        super(`college`, [`college_money`, `college_art`]);
+        super(`college`, [`college_money`]);
     }
 }
 
