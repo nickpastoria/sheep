@@ -5,7 +5,8 @@ class Load extends Phaser.Scene {
 
 
     preload() {
-            }
+        
+    }
 
     create () {
         // // keys
