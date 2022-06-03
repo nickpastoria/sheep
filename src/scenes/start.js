@@ -73,12 +73,18 @@ class tdTemplate extends Phaser.Scene {
         loadTileMap(this, this.scene_name);           
         loadPlayerCharacter(this);
         this.load.audio(`${this.scene_name}_narration`, `./assets/Audio/Narration/${this.scene_name}.ogg`);
+        this.load.audio(`room_ambient`, `./assets/Audio/Ambient/Room Ambient.ogg`);
     }
 
     create () {
         if(this.scene_name != `start`) this.narration = this.sound.play(`${this.scene_name}_narration`);
         topDownCreate(this, this.scene_name, this.next_scene, this.tiles_name);
         console.log(`Now in: ${this.scene_name}`);
+        if(this.scene_name == `start`) {
+            this.room_ambient = this.sound.add(`room_ambient`);
+            this.room_ambient.setLoop(true);
+            this.room_ambient.play();
+        }
     }
 
     update () {
@@ -137,16 +143,28 @@ class IntroCutscene extends Phaser.Scene {
         super('introCutscene');
     }
     preload() {
-        this.load.audio(`start_narration`, `./assets/Audio/Narration/start.ogg`);
+        this.load.audio(`start_narration`, `./assets/Audio/Narration/start-001.ogg`);
+        this.load.audio(`start_music`, `./assets/Audio/Narration/start-002.ogg`);
+        this.load.aseprite('cutscene', './assets/intro.png', './assets/intro.json');
     }
     create() {
         console.log('Now in: introCutscene');
         this.narration = this.sound.add(`start_narration`);
+        this.music = this.sound.add(`start_music`);
+        this.music.play();
         this.narration.play();
         this.narration.once(`complete`, () => {
-            this.scene.start(`start`);
+            this.cameras.main.fadeOut(2000);
         });
-        this.cameras.main.fadeIn(6000);  
+        this.cameras.main.fadeIn(2000);
+        this.cutscene = this.add.sprite(0, 0).setOrigin(0,0);
+        this.cutsceneAnim = this.anims.createFromAseprite('cutscene');
+        this.animation = this.cutscene.play({key: this.cutsceneAnim[0].key, repeat: -1, yoyo: true});
+        this.animation.repeat = -1;
+        
+        this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
+            this.scene.start(`start`);
+        })
     }
 }
 
