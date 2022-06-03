@@ -51,7 +51,9 @@ function topDownCreate(scene, scene_name, next_scene, tiles_name) {
             // collider        
             scene.physics.add.collider(scene.p1.sprite, buildings_Layer); 
             for ( let i = 0; i < scene.transitionsBoundaries.length; i++) {
-                scene.physics.add.overlap(scene.p1.sprite, scene.transitionsBoundaries[i], ()=> scene.scene.start(scene.next_scene[i])); // Scene Transition
+                scene.physics.add.overlap(scene.p1.sprite, scene.transitionsBoundaries[i], ()=> {
+                    scene.scene.start(scene.next_scene[i]) 
+                    scene.sound.stopAll()}); // Scene Transition
             }
 }
 
@@ -70,9 +72,11 @@ class tdTemplate extends Phaser.Scene {
         this.load.image("room_tiles", "./assets/Images/room_tiles.png");          // tileset  
         loadTileMap(this, this.scene_name);           
         loadPlayerCharacter(this);
+        this.load.audio(`${this.scene_name}_narration`, `./assets/Audio/Narration/${this.scene_name}.ogg`);
     }
 
     create () {
+        if(this.scene_name != `start`) this.narration = this.sound.play(`${this.scene_name}_narration`);
         topDownCreate(this, this.scene_name, this.next_scene, this.tiles_name);
         console.log(`Now in: ${this.scene_name}`);
     }
@@ -123,8 +127,26 @@ class Menu extends Phaser.Scene {
         }
         if(Phaser.Input.Keyboard.JustDown(keyA) || Phaser.Input.Keyboard.JustDown(keyD) || Phaser.Input.Keyboard.JustDown(keyW) || Phaser.Input.Keyboard.JustDown(keyS)) { 
             console.log(`Pressed Key`);
-            this.scene.start(`start`);
+            this.scene.start(`introCutscene`);
         }
+    }
+}
+
+class IntroCutscene extends Phaser.Scene {
+    constructor() {
+        super('introCutscene');
+    }
+    preload() {
+        this.load.audio(`start_narration`, `./assets/Audio/Narration/start.ogg`);
+    }
+    create() {
+        console.log('Now in: introCutscene');
+        this.narration = this.sound.add(`start_narration`);
+        this.narration.play();
+        this.narration.once(`complete`, () => {
+            this.scene.start(`start`);
+        });
+        this.cameras.main.fadeIn(6000);  
     }
 }
 
@@ -142,7 +164,13 @@ class Street extends tdTemplate {
 
 class College extends tdTemplate {
     constructor() {
-        super(`college`, [`boxing`]);
+        super(`college`, [`hallway`]);
+    }
+}
+
+class Hallway extends tdTemplate {
+    constructor() {
+        super(`hallway`, [`boxing`]);
     }
 }
 
@@ -150,4 +178,51 @@ class Final extends tdTemplate {
     constructor() {
         super(`final`, [`ending`]);
     }   
+}
+
+class Ending extends Phaser.Scene {
+    constructor() {
+        super('ending');
+    }
+    
+    preload() {
+        this.load.image(`start`, `./assets/Menu_Assets/Start.png`);
+        this.load.image(`controls`, `./assets/Menu_Assets/Controls.png`);
+        this.load.image(`title1`, `./assets/Menu_Assets/Title1.png`);
+        this.load.image(`title2`, `./assets/Menu_Assets/Title2.png`);
+    }
+
+    create() {
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        this.cameras.main.setBackgroundColor(0xffffff);
+        console.log('Now in: ending');
+        this.start = this.add.sprite(182, 195, `start`).setOrigin(0, 0);
+        this.anims.create({
+            key: 'title_anim',
+            frames: [
+                {key: 'title1', duration: 500},
+                {key: 'title2', duration: 500}
+            ],
+            frameRate: 8,
+            repeat: -1
+        });
+        this.add.sprite(52+179,44+61, `title1`).play('title_anim').setOrigin(1,1);
+        this.add.sprite(75, 195 + 10, `controls`).setOrigin(0.5, 0.5);
+    }
+    update(time) {
+        let sinTime = Math.sin(time / 200);
+        if(sinTime > 0) {
+            this.start.setVisible(true);
+        }
+        if(sinTime < 0) {
+            this.start.setVisible(false);
+        }
+        if(Phaser.Input.Keyboard.JustDown(keyA) || Phaser.Input.Keyboard.JustDown(keyD) || Phaser.Input.Keyboard.JustDown(keyW) || Phaser.Input.Keyboard.JustDown(keyS)) { 
+            console.log(`Pressed Key`);
+            this.scene.start(`start`);
+        }
+    }
 }
