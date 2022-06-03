@@ -10,6 +10,7 @@ class Boxing extends Phaser.Scene {
     }
 
     create() {
+        console.log(`Now in: boxing game`);
         this.sheep_tags = this.anims.createFromAseprite('sheep_close');
         this.boxer_tags = this.anims.createFromAseprite('boxer');
         this.fist_tags = this.anims.createFromAseprite('fist');
@@ -47,15 +48,15 @@ class Boxing extends Phaser.Scene {
 
             // ending selection logic
             this.clock = this.time.delayedCall(6500, () => {
-                let target = 'special'
+                let target = 'final'
                 if (this.hits >= 50) {
-                    target = 'ending'; // make this go to a special ending
+                    target = 'final'; // make this go to a special ending
                 }
                 else if (this.hits >= 25) {
-                    target = 'ending'; // normal ending
+                    target = 'final'; // normal ending
                 }
                 else {
-                    target = 'gameover';
+                    target = 'final';
                     this.boxer.play({
                         key: this.boxer_tags[2].key,
                         timeScale:1.25

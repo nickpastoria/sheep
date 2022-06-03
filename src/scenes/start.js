@@ -70,17 +70,60 @@ class tdTemplate extends Phaser.Scene {
         this.load.image("room_tiles", "./assets/Images/room_tiles.png");          // tileset  
         loadTileMap(this, this.scene_name);           
         loadPlayerCharacter(this);
-        
     }
-    
 
     create () {
         topDownCreate(this, this.scene_name, this.next_scene, this.tiles_name);
         console.log(`Now in: ${this.scene_name}`);
+        keyA = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        keyD = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        keyW = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        keyS = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     }
 
     update () {
         this.p1.update();
+        if(keyA.isDown > 0 || keyD.isDown > 0 || keyW.isDown > 0 || keyS.isDown > 0) {
+            this.scene.start(`start`);
+        }
+    }
+}
+class Menu extends Phaser.Scene {
+    constructor() {
+        super('menu');
+    }
+    
+    preload() {
+        this.load.image(`start`, `./assets/Menu_Assets/Start.png`);
+        this.load.image(`controls`, `./assets/Menu_Assets/Controls.png`);
+        this.load.image(`title1`, `./assets/Menu_Assets/Title1.png`);
+        this.load.image(`title2`, `./assets/Menu_Assets/Title2.png`);
+    }
+
+    create() {
+        this.cameras.main.setBackgroundColor(0xffffff);
+        console.log('Now in: menu');
+        this.start = this.add.sprite(182, 195, `start`).setOrigin(0, 0);
+        this.anims.create({
+            key: 'title_anim',
+            frames: [
+                {key: 'title1', duration: 500},
+                {key: 'title2', duration: 500}
+            ],
+            frameRate: 8,
+            repeat: -1
+        });
+        this.add.sprite(52+179,44+61, `title1`).play('title_anim').setOrigin(1,1);
+        this.add.sprite(75, 195 + 10, `controls`).setOrigin(0.5, 0.5);
+    }
+    update(time) {
+        let sinTime = Math.sin(time / 200);
+        if(sinTime > 0) {
+            this.start.setVisible(true);
+        }
+        if(sinTime < 0) {
+            this.start.setVisible(false);
+        }
     }
 }
 
@@ -98,42 +141,12 @@ class Street extends tdTemplate {
 
 class College extends tdTemplate {
     constructor() {
-        super(`college`, [`college_money`]);
+        super(`college`, [`boxing`]);
     }
 }
 
-class College_Money extends tdTemplate {
+class Final extends tdTemplate {
     constructor() {
-        super(`college_money`, [`business_class`]);
-    }
-}
-
-class Business_Class extends tdTemplate {
-    constructor() {
-        super(`business_class`, [`frat_party`]);
-    }
-}
-
-class Frat_Party extends tdTemplate {
-    constructor() {
-        super(`frat_party`, [`app`]);
-    }
-}
-
-class App extends tdTemplate {
-    constructor() {
-        super(`app`, [`space`]);
-    }
-}
-
-class Space extends tdTemplate {
-    constructor() {
-        super(`space`, [`iss_ending`]);
-    }
-}
-
-class ISS_Ending extends tdTemplate {
-    constructor() {
-        super(`iss_ending`, [`start`]);
-    }
+        super(`final`, [`ending`]);
+    }   
 }
