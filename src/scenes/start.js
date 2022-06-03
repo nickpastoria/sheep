@@ -75,17 +75,10 @@ class tdTemplate extends Phaser.Scene {
     create () {
         topDownCreate(this, this.scene_name, this.next_scene, this.tiles_name);
         console.log(`Now in: ${this.scene_name}`);
-        keyA = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        keyD = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        keyW = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        keyS = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     }
 
     update () {
         this.p1.update();
-        if(keyA.isDown > 0 || keyD.isDown > 0 || keyW.isDown > 0 || keyS.isDown > 0) {
-            this.scene.start(`start`);
-        }
     }
 }
 class Menu extends Phaser.Scene {
@@ -101,6 +94,10 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.cameras.main.setBackgroundColor(0xffffff);
         console.log('Now in: menu');
         this.start = this.add.sprite(182, 195, `start`).setOrigin(0, 0);
@@ -123,6 +120,10 @@ class Menu extends Phaser.Scene {
         }
         if(sinTime < 0) {
             this.start.setVisible(false);
+        }
+        if(Phaser.Input.Keyboard.JustDown(keyA) || Phaser.Input.Keyboard.JustDown(keyD) || Phaser.Input.Keyboard.JustDown(keyW) || Phaser.Input.Keyboard.JustDown(keyS)) { 
+            console.log(`Pressed Key`);
+            this.scene.start(`start`);
         }
     }
 }
