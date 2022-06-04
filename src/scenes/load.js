@@ -17,7 +17,7 @@ class Load extends Phaser.Scene {
     }
 
     update () {
-        this.scene.start('menu');
+        this.scene.start('hallway');
     }
 
 }

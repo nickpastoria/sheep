@@ -74,6 +74,7 @@ class tdTemplate extends Phaser.Scene {
         loadPlayerCharacter(this);
         this.load.audio(`${this.scene_name}_narration`, `./assets/Audio/Narration/${this.scene_name}.ogg`);
         this.load.audio(`room_ambient`, `./assets/Audio/Ambient/Room Ambient.ogg`);
+        this.load.audio(`low_drone_loop`, `./assets/Audio/Ambient/low_drone_loop.ogg`);
     }
 
     create () {
@@ -82,6 +83,17 @@ class tdTemplate extends Phaser.Scene {
         console.log(`Now in: ${this.scene_name}`);
         if(this.scene_name == `start`) {
             this.room_ambient = this.sound.add(`room_ambient`);
+            this.room_ambient.setLoop(true);
+            this.room_ambient.play();
+        }
+        if(this.scene_name == `hallway`) {
+            this.room_ambient = this.sound.add(`low_drone_loop`);
+            this.room_ambient.volume = 0;
+            this.tweens.add({
+                targets: this.room_ambient,
+                volume: 1,
+                duration: 500
+            });
             this.room_ambient.setLoop(true);
             this.room_ambient.play();
         }
@@ -101,6 +113,7 @@ class Menu extends Phaser.Scene {
         this.load.image(`controls`, `./assets/Menu_Assets/Controls.png`);
         this.load.image(`title1`, `./assets/Menu_Assets/Title1.png`);
         this.load.image(`title2`, `./assets/Menu_Assets/Title2.png`);
+        this.load.audio(`gaming ambient`, `./assets/Audio/Ambient/gaming ambient.ogg`);
     }
 
     create() {
@@ -122,6 +135,10 @@ class Menu extends Phaser.Scene {
         });
         this.add.sprite(52+179,44+61, `title1`).play('title_anim').setOrigin(1,1);
         this.add.sprite(75, 195 + 10, `controls`).setOrigin(0.5, 0.5);
+
+        this.room_ambient = this.sound.add(`gaming ambient`);
+        this.room_ambient.setLoop(true);
+        this.room_ambient.play();
     }
     update(time) {
         let sinTime = Math.sin(time / 200);
@@ -133,6 +150,7 @@ class Menu extends Phaser.Scene {
         }
         if(Phaser.Input.Keyboard.JustDown(keyA) || Phaser.Input.Keyboard.JustDown(keyD) || Phaser.Input.Keyboard.JustDown(keyW) || Phaser.Input.Keyboard.JustDown(keyS)) { 
             console.log(`Pressed Key`);
+            this.sound.stopAll();
             this.scene.start(`introCutscene`);
         }
     }
