@@ -80,7 +80,18 @@ class tdTemplate extends Phaser.Scene {
     }
 
     create () {
-        if(this.scene_name != `start`) this.narration = this.sound.play(`${this.scene_name}_narration`);
+        if(this.scene_name != `start`){ 
+            this.narration = this.sound.add(`${this.scene_name}_narration`);
+            this.narration.play();
+        }
+        if(this.scene_name == `final`){
+            this.narration.once('complete', ()=> {
+                this.cameras.main.fadeOut(2000);
+            });
+            this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
+                this.scene.start(`ending`);
+            })
+        }
         topDownCreate(this, this.scene_name, this.next_scene, this.tiles_name);
         console.log(`Now in: ${this.scene_name}`);
         if(this.scene_name == `start`) {
@@ -124,7 +135,9 @@ class tdTemplate extends Phaser.Scene {
     }
 
     update () {
-        this.p1.update();
+        if(this.scene_name != `final`) {
+            this.p1.update();
+        }
     }
 }
 class Menu extends Phaser.Scene {
@@ -206,7 +219,7 @@ class IntroCutscene extends Phaser.Scene {
         
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
             this.scene.start(`start`);
-        })
+        });
     }
 }
 
@@ -236,20 +249,24 @@ class Hallway extends tdTemplate {
 
 class Final extends tdTemplate {
     constructor() {
-        super(`final`, [`ending`]);
+        super(`final`, [`ending`], "room_tiles");
     }   
 }
 
 class Ending extends Phaser.Scene {
     constructor() {
-        super('ending', [], "room_tiles");
+        super('ending');
     }
     
     preload() {
-        this.load.image(`start`, `./assets/Menu_Assets/Start.png`);
-        this.load.image(`controls`, `./assets/Menu_Assets/Controls.png`);
-        this.load.image(`title1`, `./assets/Menu_Assets/Title1.png`);
-        this.load.image(`title2`, `./assets/Menu_Assets/Title2.png`);
+        this.load.image("bg", "./assets/Ending/bg.png");
+        this.load.image("endingBoxer", "./assets/Ending/boxer.png");
+        this.load.image("glove", "./assets/Ending/glove.png");
+        this.load.image("pbag", "./assets/Ending/pbag.png");
+        this.load.image("Text", "./assets/Ending/Text.png");
+        this.load.image("credits", "./assets/Ending/credits.png");
+        this.load.audio(`ending`, `./assets/Audio/Narration/ending.ogg`);
+        this.load.audio('ending_music', `./assets/Audio/Ambient/ending_music.ogg`);
     }
 
     create() {
@@ -259,30 +276,65 @@ class Ending extends Phaser.Scene {
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.cameras.main.setBackgroundColor(0xffffff);
         console.log('Now in: ending');
-        this.start = this.add.sprite(182, 195, `start`).setOrigin(0, 0);
-        this.anims.create({
-            key: 'title_anim',
-            frames: [
-                {key: 'title1', duration: 500},
-                {key: 'title2', duration: 500}
-            ],
-            frameRate: 8,
+        this.bg = this.add.sprite(0, 0, `bg`).setOrigin(0, 0);
+        this.boxer = this.add.sprite(0, 0, `endingBoxer`).setOrigin(0, 0);
+        this.glove = this.add.sprite(0, 0, `glove`).setOrigin(0, 0);
+        this.pbag = this.add.sprite(0, 0, `pbag`).setOrigin(0, 0);
+        this.Text = this.add.sprite(0, 0, `Text`).setOrigin(0, 0);
+        this.narration = this.sound.add(`ending`);
+        this.narration.play();
+
+        this.music = this.sound.add(`ending_music`);
+        this.music.play();
+        this.cameras.main.fadeIn(2000);
+
+        this.time.addEvent({
+            delay: 4000,
+            callback: () => {
+                this.cameras.main.fadeOut(4000);
+                this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
+                    this.credits = this.add.sprite(0, 0, `credits`).setOrigin(0, 0);
+                    this.cameras.main.fadeIn(4000);
+                    this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_IN_COMPLETE, (cam, effect) => {
+                        this.time.addEvent({
+                            delay: 4000,
+                            callback: () => {
+                                this.cameras.main.fadeOut(4000);
+                                this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
+                                    this.scene.start(`menu`);
+                                });
+                            }
+                        })
+                    });
+                });
+            }
+        })
+
+        this.tweens.add({
+            targets: this.boxer,
+            x: 10,
+            duration: 2000,
+            ease: 'sine',
+            yoyo: true,
             repeat: -1
         });
-        this.add.sprite(52+179,44+61, `title1`).play('title_anim').setOrigin(1,1);
-        this.add.sprite(75, 195 + 10, `controls`).setOrigin(0.5, 0.5);
+        this.tweens.add({
+            targets: this.pbag,
+            x: -10,
+            duration: 2000,
+            ease: 'sine',
+            yoyo: true,
+            repeat: -1
+        });
+        this.tweens.add({
+            targets: this.glove,
+            x: -100,
+            duration: 2000,
+            ease: 'sine',
+            yoyo: true,
+            repeat: -1
+        });
     }
     update(time) {
-        let sinTime = Math.sin(time / 200);
-        if(sinTime > 0) {
-            this.start.setVisible(true);
-        }
-        if(sinTime < 0) {
-            this.start.setVisible(false);
-        }
-        if(Phaser.Input.Keyboard.JustDown(keyA) || Phaser.Input.Keyboard.JustDown(keyD) || Phaser.Input.Keyboard.JustDown(keyW) || Phaser.Input.Keyboard.JustDown(keyS)) { 
-            console.log(`Pressed Key`);
-            this.scene.start(`start`);
-        }
     }
 }
