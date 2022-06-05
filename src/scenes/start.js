@@ -75,6 +75,8 @@ class tdTemplate extends Phaser.Scene {
         this.load.audio(`${this.scene_name}_narration`, `./assets/Audio/Narration/${this.scene_name}.ogg`);
         this.load.audio(`room_ambient`, `./assets/Audio/Ambient/Room Ambient.ogg`);
         this.load.audio(`low_drone_loop`, `./assets/Audio/Ambient/low_drone_loop.ogg`);
+        this.load.audio(`street_ambience`, `./assets/Audio/Ambient/street ambience.ogg`);
+        this.load.audio(`street_ambience-2`, `./assets/Audio/Ambient/street ambience-2.ogg`);
     }
 
     create () {
@@ -88,6 +90,28 @@ class tdTemplate extends Phaser.Scene {
         }
         if(this.scene_name == `hallway`) {
             this.room_ambient = this.sound.add(`low_drone_loop`);
+            this.room_ambient.volume = 0;
+            this.tweens.add({
+                targets: this.room_ambient,
+                volume: 1,
+                duration: 500
+            });
+            this.room_ambient.setLoop(true);
+            this.room_ambient.play();
+        }
+        if(this.scene_name == `street`) {
+            this.room_ambient = this.sound.add(`street_ambience`);
+            this.room_ambient.volume = 0;
+            this.tweens.add({
+                targets: this.room_ambient,
+                volume: 1,
+                duration: 500
+            });
+            this.room_ambient.setLoop(true);
+            this.room_ambient.play();
+        }
+        if(this.scene_name == `college`) {
+            this.room_ambient = this.sound.add(`street_ambience-2`);
             this.room_ambient.volume = 0;
             this.tweens.add({
                 targets: this.room_ambient,
@@ -218,7 +242,7 @@ class Final extends tdTemplate {
 
 class Ending extends Phaser.Scene {
     constructor() {
-        super('ending');
+        super('ending', [], "room_tiles");
     }
     
     preload() {
