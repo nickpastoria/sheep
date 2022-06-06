@@ -244,7 +244,21 @@ class Menu extends Phaser.Scene {
             repeat: -1
         });
         this.add.sprite(52+179,44+61, `title1`).play('title_anim').setOrigin(1,1);
-        this.add.sprite(75, 195 + 10, `controls`).setOrigin(0.5, 0.5);
+        this.controls = this.add.sprite(75, 195 + 10 + 10, `controls`).setOrigin(0.5, 0.5);
+        this.controls.alpha = 0;
+        this.tweens.add({
+            targets: this.controls,
+            alpha: 1,
+            duration: 1000,
+        });
+        this.tweens.add({
+            targets: this.controls,
+            y: 195 + 10,
+            duration: 2000,
+            yoyo: true,
+            repeat: -1
+        });
+
 
         this.room_ambient = this.sound.add(`gaming ambient`);
         this.room_ambient.setLoop(true);
