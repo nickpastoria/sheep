@@ -13,7 +13,7 @@ let config = {
         }
     },
     scale: {
-        autoCenter: Phaser.Scale.CENTER_BOTH,
+        //autoCenter: Phaser.Scale.CENTER_BOTH,
         zoom: Phaser.Scale.ZOOM_2X,
     },
     pixelArt: true,
