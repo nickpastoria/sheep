@@ -95,9 +95,13 @@ class tdTemplate extends Phaser.Scene {
         topDownCreate(this, this.scene_name, this.next_scene, this.tiles_name);
         console.log(`Now in: ${this.scene_name}`);
         if(this.scene_name == `start`) {
+            this.cameras.main.fadeIn(2000);
             this.room_ambient = this.sound.add(`room_ambient`);
             this.room_ambient.setLoop(true);
             this.room_ambient.play();
+        }
+        if (this.scene_name == `final`) {
+            this.cameras.main.fadeIn(1000);
         }
         if(this.scene_name == `hallway`) {
             this.room_ambient = this.sound.add(`low_drone_loop`);
