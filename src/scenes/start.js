@@ -19,7 +19,7 @@ function topDownCreate(scene, scene_name, next_scene, tiles_name) {
             keyS = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
             
             // map and tileset
-            const map = scene.add.tilemap(`${scene_name}_map`);
+            this.map = scene.add.tilemap(`${scene_name}_map`);
             console.log(`Loading tileset named ${tiles_name}`);
             const tileSet = map.addTilesetImage(tiles_name, tiles_name);
             // load layers
@@ -47,7 +47,7 @@ function topDownCreate(scene, scene_name, next_scene, tiles_name) {
     
             // spawn player and sheep
             scene.p1 = new Player(scene, scene.sheep_tags, p1Spawn.x, p1Spawn.y);
-    
+                
             // collider        
             scene.physics.add.collider(scene.p1.sprite, buildings_Layer); 
             for ( let i = 0; i < scene.transitionsBoundaries.length; i++) {
@@ -109,6 +109,62 @@ class tdTemplate extends Phaser.Scene {
             });
             this.room_ambient.setLoop(true);
             this.room_ambient.play();
+            
+            // get sheep spawn points
+            this.sheep_points = []; 
+            for (let i=0; i < 22; i++) {
+                    this.sheep_points[i] = map.findObject("sheep", obj => obj.name === `s${i+1}spawn`);
+            }
+
+            // create sheep
+            this.sheep = [];
+            for (let i=0; i < 22; i++) {
+                this.sheep[i] = new Sheep(this, this.sheep_tags, this.sheep_points[i].x, this.sheep_points[i].y, 6);
+            }
+
+
+            // get each path
+            const obj = map.getObjectLayer('path');
+            this.path1 = []; this.path2 = [];
+            this.path3 = []; this.path4 = [];
+            this.path5 = [];
+            obj.objects.forEach(
+                (object) => {
+                    if (object.type === 'path1') {
+                        this.path1.push(object.x);
+                        this.path1.push(object.y);
+                    }
+                    else if (object.type === 'path2') {
+                        this.path2.push(object.x);
+                        this.path2.push(object.y);
+                    }
+                    else if (object.type === 'path3') {                        
+                        this.path3.push(object.x);
+                        this.path3.push(object.y);
+                    }
+                    else if (object.type === 'path4') {                        
+                        this.path4.push(object.x);
+                        this.path4.push(object.y);
+                    }
+                    else if (object.type === 'path5') {                        
+                        this.path5.push(object.x);
+                        this.path5.push(object.y);
+                    }
+                }
+            )           
+            
+            // get pathing sheep spawn points
+            const s1Spawn = map.findObject("sheep", obj => obj.name === "s100spawn");
+            const s2Spawn = map.findObject("sheep", obj => obj.name === "s200spawn");
+            const s3Spawn = map.findObject("sheep", obj => obj.name === "s300spawn");
+            const s4Spawn = map.findObject("sheep", obj => obj.name === "s400spawn");
+            const s5Spawn = map.findObject("sheep", obj => obj.name === "s500spawn");
+            // create pathing sheep
+            this.s1 = new Sheep(this, this.sheep_tags, s1Spawn.x, s1Spawn.y, 6);
+            this.s2 = new Sheep(this, this.sheep_tags, s2Spawn.x, s2Spawn.y, 6);
+            this.s3 = new Sheep(this, this.sheep_tags, s3Spawn.x, s3Spawn.y, 6);
+            this.s4 = new Sheep(this, this.sheep_tags, s4Spawn.x, s4Spawn.y, 6);
+            this.s5 = new Sheep(this, this.sheep_tags, s5Spawn.x, s5Spawn.y, 6);
         }
         if(this.scene_name == `street`) {
             this.room_ambient = this.sound.add(`street_ambience`);
@@ -137,6 +193,19 @@ class tdTemplate extends Phaser.Scene {
     update () {
         if(this.scene_name != `final`) {
             this.p1.update();
+        }
+        if (this.scene_name == `hallway`) { 
+            // update sheep
+            for (let i=0; i < 22; i++) {
+                //      sheep update(moving, gotoStart, jumpttoStart, pause, path[], startFacing, facingAtEnd, player.x, player.y)
+                this.sheep[i].update(false, false, false, false, this.path, true, false, this.p1.sprite.x, this.p1.sprite.y);
+            }            
+            // update pathing sheep
+            this.s1.update(true, false, false, false, this.path1, false, true, this.p1.sprite.x, this.p1.sprite.y);
+            this.s2.update(true, false, false, false, this.path2, false, true, this.p1.sprite.x, this.p1.sprite.y);
+            this.s3.update(true, false, false, false, this.path3, false, true, this.p1.sprite.x, this.p1.sprite.y);
+            this.s4.update(true, false, false, false, this.path4, false, true, this.p1.sprite.x, this.p1.sprite.y);
+            this.s5.update(true, false, false, false, this.path5, false, true, this.p1.sprite.x, this.p1.sprite.y);
         }
     }
 }
